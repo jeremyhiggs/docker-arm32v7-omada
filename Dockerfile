@@ -1,7 +1,7 @@
 FROM arm32v7/openjdk:8u181-jre-slim
 HEALTHCHECK CMD wget --quiet --tries=1 --no-check-certificate http://127.0.0.1:8088 || exit 1
-
-ARG OMADA_FILENAME=Omada_Controller_v3.0.5_linux_x64
+#https://static.tp-link.com/2019/201907/20190726/Omada_Controller_v3.2.1_linux_x64.tar.gz
+ARG OMADA_FILENAME=Omada_Controller_v3.2.1_linux_x64
 ARG MONGO_ARM_FILENAME=core_mongodb_3_0_14
 
 COPY bin/qemu-arm-static /usr/bin
@@ -16,7 +16,7 @@ RUN apt-get update && \
 RUN wget -q http://security.debian.org/debian-security/pool/updates/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u11_armhf.deb && \
   dpkg -i libssl1.0.0_1.0.1t-1+deb8u11_armhf.deb
 
-RUN wget -q https://static.tp-link.com/2018/201811/20181108/$OMADA_FILENAME.tar.gz.zip && \
+RUN wget -q https://static.tp-link.com/2019/201907/20190726/$OMADA_FILENAME.tar.gz.zip && \
   unzip $OMADA_FILENAME.tar.gz.zip
 
 RUN tar -xvf $OMADA_FILENAME.tar.gz
