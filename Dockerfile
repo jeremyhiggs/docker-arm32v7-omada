@@ -1,4 +1,4 @@
-FROM arm32v7/openjdk:8u181-jre-slim
+FROM arm64v8/openjdk:8u181-jre-slim
 HEALTHCHECK CMD wget --quiet --tries=1 --no-check-certificate http://127.0.0.1:8088 || exit 1
 #https://static.tp-link.com/2019/201907/20190726/Omada_Controller_v3.2.1_linux_x64.tar.gz
 ARG OMADA_FILENAME=Omada_Controller_v3.2.1_linux_x64
